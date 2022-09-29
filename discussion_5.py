@@ -85,14 +85,31 @@ class TestAllMethods(unittest.TestCase):
 	## Check to see whether you can add an item to the warehouse
 	def test_add_item(self):
 		self.w = Warehouse()
+		self.assertEqual(self.w.items, [])
 		self.i = Item("Water", 1, 100)
 		self.w.add_item(self.item1)
-		self.assertIn(self.item1, self.w)
+		self.assertIn(self.item1, self.w.items)
 
 
 	## Check to see whether warehouse correctly returns the item with the most stock
 	def test_warehouse_max_stocks(self):
-		pass
+		# test in the middle
+		self.w1 = Warehouse()
+		self.w1.add_item(self.item2)
+		self.w1.add_item(self.item3)
+		self.w1.add_item(self.item4)
+		self.w1.add_item(self.item5)
+
+		self.assertEqual(self.w1.get_max_stock(), self.item3)
+
+		#test one item
+		self.w2 = Warehouse()
+		self.w2.add_item(self.item1)
+		self.assertEqual(self.w2.get_max_stock(), self.item1)
+		
+
+
+		
 
 
 	# Check to see whether the warehouse correctly return the item with the highest price
