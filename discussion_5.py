@@ -90,6 +90,9 @@ class TestAllMethods(unittest.TestCase):
 		self.w.add_item(self.item1)
 		self.assertIn(self.item1, self.w.items)
 
+		self.w.add_item(self.item2)
+		self.assertIn(self.item2, self.w.items)
+
 
 	## Check to see whether warehouse correctly returns the item with the most stock
 	def test_warehouse_max_stocks(self):
