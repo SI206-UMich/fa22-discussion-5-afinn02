@@ -63,7 +63,10 @@ class TestAllMethods(unittest.TestCase):
 
 	## Check to see whether count_a works
 	def test_count_a(self):
-		pass
+		self.assertEqual(count_a(""), 0)
+		self.assertEqual(count_a("aaa"), 3)
+		self.assertEqual(count_a("back to the future"), 1)
+		self.assertEqual(count_a("whAt AAA"), 4)
 
 
 	## Check to see whether you can add an item to the warehouse
