@@ -117,15 +117,33 @@ class TestAllMethods(unittest.TestCase):
 		self.w3.add_item(self.item5)
 		self.w3.add_item(self.item3)
 		self.assertEqual(self.w3.get_max_stock(), self.item3)
-		
-
-
-		
-
 
 	# Check to see whether the warehouse correctly return the item with the highest price
 	def test_warehouse_max_price(self):
-		pass
+		# test biggest is first
+		self.w1 = Warehouse()
+		self.w1.add_item(self.item2)
+		self.w1.add_item(self.item3)
+		self.w1.add_item(self.item4)
+		self.w1.add_item(self.item5)
+
+		self.assertEqual(self.w1.get_max_price(), self.item2)
+
+		#test one item
+		self.w2 = Warehouse()
+		self.w2.add_item(self.item1)
+		self.assertEqual(self.w2.get_max_price(), self.item1)
+
+		#test middle is largest
+		self.w3 = Warehouse()
+		self.w3.add_item(self.item4)
+		self.w3.add_item(self.item2)
+		self.w3.add_item(self.item3)
+		self.assertEqual(self.w3.get_max_price(), self.item2)
+
+		# test last item is the largest
+		self.w3.add_item(self.item1)
+		self.assertEqual(self.w3.get_max_price(), self.item1)
 		
 
 def main():
