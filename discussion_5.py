@@ -93,7 +93,7 @@ class TestAllMethods(unittest.TestCase):
 
 	## Check to see whether warehouse correctly returns the item with the most stock
 	def test_warehouse_max_stocks(self):
-		# test in the middle
+		# test biggest in the middle
 		self.w1 = Warehouse()
 		self.w1.add_item(self.item2)
 		self.w1.add_item(self.item3)
@@ -106,6 +106,17 @@ class TestAllMethods(unittest.TestCase):
 		self.w2 = Warehouse()
 		self.w2.add_item(self.item1)
 		self.assertEqual(self.w2.get_max_stock(), self.item1)
+
+		#test first is largest
+		self.w3 = Warehouse()
+		self.w3.add_item(self.item4)
+		self.w3.add_item(self.item2)
+		self.assertEqual(self.w3.get_max_stock(), self.item4)
+
+		# test last item is the largest
+		self.w3.add_item(self.item5)
+		self.w3.add_item(self.item3)
+		self.assertEqual(self.w3.get_max_stock(), self.item3)
 		
 
 
